@@ -1,0 +1,104 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My First Leaflet Map</title>
+  <!-- เรียก CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
+  <!-- เรียก Java Script  -->
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <h1>แผนที่แสดงจุดท่องเที่ยวอุทยานแห่งชาติเขาใหญ่</h1>
+  <img src="" alt="" class="center">
+  <style>
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+  <!-- วางโครงตัว map -->
+  <div id="map" style="width:1200px; height:800px"></div>
+
+  <!-- embeded map -->
+  <script>
+    var map = L.map('map').setView([14.359568406957932, 101.4628596641337], 11);
+
+    // <!-- เรียกแผนที่ฐาน -->
+    mapLink = '<a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenTopoMap">OpenTopoMap</a>';
+    L.tileLayer(
+      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; ' + mapLink + ' Contributors',
+        maxZoom: 22,
+      }).addTo(map);
+
+    var greenIcon = L.icon({
+      iconUrl: 'tourist.png',
+      // shadowUrl: 'https://leafletjs.com/SlavaUkraini/examples/custom-icons/leaf-shadow.png',
+
+
+
+      iconSize: [45, 45], // size of the icon
+      // shadowSize: [50, 64], // size of the shadow
+      //iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+      // shadowAnchor: [4, 62], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+// Add markers
+    var marker = L.marker([14.289592029832065, 101.38812715805358], {
+        icon: greenIcon,
+        draggable: false,
+        title: 'น้ำตกเหวนรก',
+        opacity: 1.5
+      })
+      .addTo(map);
+    // .bindPopup("<b>น้ำตกเหวนรก</b>")
+    // .openPopup();
+    var marker = L.marker([14.507760991222373, 101.37898193189274], {
+        icon: greenIcon,
+        draggable: false,
+        title: 'ด่านตรวจอุทยานแห่งชาติเขาใหญ่ (หมูสี)',
+        opacity: 1.5
+      })
+      .addTo(map);
+    var marker = L.marker([14.473691818013698, 101.39016922432282], {
+        icon: greenIcon,
+        draggable: false,
+        title: 'จุดชมวิว กม 30 เขาใหญ่',
+        opacity: 1.5
+      })
+      .addTo(map);
+    var marker = L.marker([14.435537595557912, 101.4140567233553], {
+        icon: greenIcon,
+        draggable: false,
+        title: 'น้ำตกเหวสุวัต',
+        opacity: 1.5
+      })
+      .addTo(map);
+    var marker = L.marker([14.2222355723094, 101.40506254173273], {
+        icon: greenIcon,
+        draggable: false,
+        title: 'ด่านตรวจอุทยานแห่งชาติเขาใหญ่ (เนินหอม)',
+        opacity: 1.5
+      })
+      .addTo(map);
+    var marker = L.marker([14.362271203527198, 101.39269439958522], {
+        icon: greenIcon,
+        draggable: false,
+        title: 'สถานีอุตุนิยมวิทยาเขาเขียว ',
+        opacity: 1.5
+      })
+      .addTo(map);
+
+
+
+  </script>
+
+</body>
+
+</html>
